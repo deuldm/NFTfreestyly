@@ -12,6 +12,8 @@ import {mintNFT} from "./cadence/transaction/mint_nft";
 import { setupUserTx } from './cadence/transaction/setup_user';
 import { listForSaleTx } from './cadence/transaction/list_for_sale';
 import { unlistFromSaleTx } from './cadence/transaction/unlist_for_sale';
+import { getFID } from 'web-vitals';
+import { getByDisplayValue } from '@testing-library/react';
 
 
 
@@ -120,12 +122,12 @@ function App() {
     <div className="App">
       <h1>HELLO COOLKU NFT DAO</h1>
       <h1>Account address: {user && user.addr ? user.addr : ''}</h1>
-      <button onClick={() => logIn()}>Log In</button>
-      <button onClick={() => fcl.unauthenticate()}>Log Out</button>
+      <button onClick={() => logIn()}>connect wallet</button>
+      <button onClick={() => fcl.unauthenticate()}>Disconnect wallet</button>
       <button onClick={() => setupUser()}>Setup User</button>
 
       <div>
-        <input type="text" onChange={(e) => setAddress(e.target.value) }id="Search" />
+        <input type="text" onChange={(e) => setAddress(e.target.value)} />
         <button onClick={() => setOfficialAddress(address)}>Search</button>
       </div>
 
